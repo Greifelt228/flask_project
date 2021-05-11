@@ -4,9 +4,19 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():
-    return 'Hello World!'
+def index():
+    return 'Hello Worlddd!'
+
+
+@app.route('/about')
+def about():
+    return 'About project!'
+
+
+@app.route('/history')
+def history():
+    return 'History grouppp'
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
