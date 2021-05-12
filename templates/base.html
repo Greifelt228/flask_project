@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+   <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">Гурт</h3>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+            <a class="nav-link active" aria-current="page" href="/">Головна</a>
+            <a class="nav-link" href="/about">Про проект</a>
+            <a class="nav-link" href="/history">Історія гурту</a>
+            <a class="nav-link" href="/albums">Альбоми</a>
+            <a class="btn btn-warning" href="/add-albums">Додати альбом</a>
+        </nav>
+
+    </div>
+  </header>
+    {% block body %}{% endblock %}
+</body>
+</html>

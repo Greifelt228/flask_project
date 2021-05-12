@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+About page
+{%  endblock %}
+
+{% block body %}
+<div>
+    <h1>Альбоми</h1>
+    {% for el in albums %}
+    <div class="alert alert-info">
+        <h2>{{ el.title }}</h2>
+        <p>{{ el.intro }}</p>
+        <a href="/albums/{{ el.id }}" class ='btn btn-warning'>Детально</a>
+    </div>
+    {% endfor %}
+</div>
+{%  endblock %}
