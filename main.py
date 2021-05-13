@@ -13,7 +13,6 @@ class Albums(db.Model):
     title = db.Column(db.String(100), nullable=False)
     intro = db.Column(db.String(300), nullable=False)
     text = db.Column(db.Text, nullable=False)
-    # date = db.Column(db.DateTime, default=datetime.utcnow())
 
     def __repr__(self):
         return '<Albums %r>' % self.id
@@ -42,7 +41,41 @@ def albums():
 @app.route('/albums/<int:id>')
 def albums_detail(id):
     albums = Albums.query.get(id)
+
     return render_template('albumDetail.html', albums=albums)
+
+
+@app.route('/albums/<int:id>/del')
+def albums_delete(id):
+
+    albums = Albums.query.get_or_404(id)
+
+    try:
+        db.session.delete(albums)
+        db.session.commit()
+        return redirect('/albums')
+    except:
+        return 'Помилка при видаленні'
+
+
+
+@app.route('/albums/<int:id>/update', methods=['POST', 'GET'])
+def update_albums(id):
+    albums = Albums.query.get(id)
+    if request.method =='POST':
+        albums.title = request.form['title']
+        albums.intro = request.form['intro']
+        albums.text = request.form['text']
+
+        try:
+            db.session.commit()
+            return redirect('/albums')
+        except:
+            return 'Помилка при додаванні'
+
+    else:
+
+        return render_template('albumUpdate.html', albums=albums)
 
 
 @app.route('/add-albums', methods=['POST', 'GET'])

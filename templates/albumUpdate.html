@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Оновлення альбому
+{%  endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Оновлення альбому</h1>
+    <form method="post">
+        <input type="text" name="title" id='title' class="form-control" value="{{albums.title}}" placeholder="Назва альбому"><br>
+        <textarea  name="intro" id="intro" class="form-control"  placeholder="Абревіатура альбому">{{albums.intro}}</textarea><br>
+        <textarea  name="text" id='text' class="form-control"  placeholder="Список композицій">{{albums.text}}</textarea><br>
+        <input type="submit" class="btn btn-success" value='Оновити'>
+    </form>
+</div>
+{%  endblock %}

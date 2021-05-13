@@ -5,10 +5,12 @@
 {%  endblock %}
 
 {% block body %}
-<div>
+<div class="container mt-5">
     <h1>{{ albums.title }}</h1>
     <div class="alert alert-info">
         <p>{{ albums.text }}</p>
+        <a href="/albums/{{ albums.id }}/del" class="btn btn-danger">Delete</a>
+        <a href="/albums/{{ albums.id }}/update" class="btn btn-success">Update</a>
     </div>
 </div>
 {%  endblock %}

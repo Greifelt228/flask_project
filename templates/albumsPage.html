@@ -5,8 +5,9 @@ About page
 {%  endblock %}
 
 {% block body %}
-<div>
+<div class="container mt-5">
     <h1>Альбоми</h1>
+
     {% for el in albums %}
     <div class="alert alert-info">
         <h2>{{ el.title }}</h2>
