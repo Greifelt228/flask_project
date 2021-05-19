@@ -6,19 +6,46 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
     <title>{% block title %}{% endblock %}</title>
 </head>
-   <header class="mb-auto">
-    <div>
-      <h3 class="float-md-start mb-0">Гурт</h3>
-        <nav class="nav nav-masthead justify-content-center float-md-end">
-            <a class="nav-link active" aria-current="page" href="/">Головна</a>
-            <a class="nav-link" href="/about">Про проект</a>
-            <a class="nav-link" href="/history">Історія гурту</a>
-            <a class="nav-link" href="/albums">Альбоми</a>
-            <a class="btn btn-warning" href="/add-albums">Додати альбом</a>
-        </nav>
+<!--   <header class="mb-auto">-->
+<!--    <div>-->
+<!--      <h3 class="float-md-start mb-0">Гурт</h3>-->
+<!--        <nav class="nav nav-masthead justify-content-center float-md-end">-->
+<!--            <a class="nav-link active" aria-current="page" href="/">Головна</a>-->
+<!--            <a class="nav-link" href="/about">Про проект</a>-->
+<!--            <a class="nav-link" href="/history">Історія гурту</a>-->
+<!--            <a class="nav-link" href="/albums">Альбоми</a>-->
+<!--            <a class="btn btn-warning" href="/add-albums">Додати альбом</a>-->
+<!--        </nav>-->
 
-    </div>
-  </header>
+<!--    </div>-->
+<!--  </header>-->
+ <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="/">NonameGroup</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Головна</a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/about">Про проект</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/history">Історія</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/albums">Альбоми</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/add-albums">Додати альбом</a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
     {% block body %}{% endblock %}
 </body>
 </html>

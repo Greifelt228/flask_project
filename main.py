@@ -1,12 +1,12 @@
-from flask import Flask, render_template, url_for, request,redirect
+from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
-
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///music_group.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///music_group.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
 
 class Albums(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -16,6 +16,8 @@ class Albums(db.Model):
 
     def __repr__(self):
         return '<Albums %r>' % self.id
+
+
 @app.route('/')
 @app.route('/home')
 def home():
@@ -47,7 +49,6 @@ def albums_detail(id):
 
 @app.route('/albums/<int:id>/del')
 def albums_delete(id):
-
     albums = Albums.query.get_or_404(id)
 
     try:
@@ -58,11 +59,10 @@ def albums_delete(id):
         return 'Помилка при видаленні'
 
 
-
 @app.route('/albums/<int:id>/update', methods=['POST', 'GET'])
 def update_albums(id):
     albums = Albums.query.get(id)
-    if request.method =='POST':
+    if request.method == 'POST':
         albums.title = request.form['title']
         albums.intro = request.form['intro']
         albums.text = request.form['text']
@@ -80,7 +80,7 @@ def update_albums(id):
 
 @app.route('/add-albums', methods=['POST', 'GET'])
 def add_albums():
-    if request.method =='POST':
+    if request.method == 'POST':
         title = request.form['title']
         intro = request.form['intro']
         text = request.form['text']
